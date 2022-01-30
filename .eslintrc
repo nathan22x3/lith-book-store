@@ -1,0 +1,14 @@
+{
+  "extends": ["@react-native-community", "plugin:prettier/recommended"],
+  "rules": {
+    "arrow-spacing": "error",
+    "eqeqeq": "error",
+    "no-console": "warn",
+    "no-extra-boolean-cast": "error",
+    "no-extra-semi": "error",
+    "no-return-await": "error",
+    "no-self-assign": "error",
+    "no-var": "error",
+    "react/react-in-jsx-scope": "off"
+  }
+}
