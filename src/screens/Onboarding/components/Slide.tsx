@@ -21,7 +21,7 @@ const Slide = ({ title, subtitle, isLast, onNext }: SlideProps) => {
         </Text>
       </Box>
       <Box alignSelf={isLast ? 'stretch' : 'flex-end'}>
-        <Button label={isLast ? 'Get started' : 'Next'} variant="primary" shadow onPress={onNext} />
+        <Button label={isLast ? 'Get started' : 'Next'} shadow onPress={onNext} />
       </Box>
     </Box>
   );

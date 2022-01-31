@@ -13,15 +13,13 @@ const Dot = ({ index, activeIndex }: DotProps) => {
     const backgroundColor = interpolateColor(
       activeIndex.value,
       [index - 1, index, index + 1],
-      [theme.colors.neutral6, theme.colors.primary1, theme.colors.neutral6]
+      [theme.colors.white, theme.colors.primary1, theme.colors.white]
     );
     return { backgroundColor };
   });
 
   return <Animated.View style={[styles.container, style]} />;
 };
-
-Dot.defaultProps = {};
 
 export default Dot;
 

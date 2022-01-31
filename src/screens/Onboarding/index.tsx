@@ -1,6 +1,8 @@
-import { Box, Text, theme } from '@components/index';
+import { Box, Container, Text, theme } from '@components/index';
+import { StackScreenProps } from '@react-navigation/stack';
+import { AuthParamList } from '@routes/index';
+import { Dot, Slide } from '@screens/Onboarding/components';
 import { DEVICE_HEIGHT, DEVICE_WIDTH, IS_ANDROID } from '@utils/const';
-import Constants from 'expo-constants';
 import { useState } from 'react';
 import { Image, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -12,11 +14,11 @@ import Animated, {
   useDerivedValue,
   useSharedValue,
 } from 'react-native-reanimated';
-import Dot from './Dot';
 import { ONBOARDING_DATA as data } from './mock';
-import Slide from './Slide';
 
-const Onboarding = () => {
+type OnboardingProps = StackScreenProps<AuthParamList, 'Onboarding'>;
+
+const Onboarding = ({ navigation }: OnboardingProps) => {
   const x = useSharedValue(0);
   const sliderRef = useAnimatedRef<Animated.ScrollView>();
   const activeIndex = useDerivedValue(() => x.value / DEVICE_WIDTH);
@@ -37,8 +39,7 @@ const Onboarding = () => {
 
   const onNext = () => {
     if (isLast) {
-      // TODO: navigate to signup screen
-      return;
+      navigation.navigate('SignUp');
     } else {
       sliderRef.current?.scrollTo({
         x: DEVICE_WIDTH * (activeIndex.value + 1),
@@ -58,12 +59,8 @@ const Onboarding = () => {
   };
 
   return (
-    <Box
-      height={DEVICE_HEIGHT + (IS_ANDROID ? Constants.statusBarHeight : 0)}
-      backgroundColor="neutral6"
-      pt="3xl"
-    >
-      <Box alignSelf="flex-end" mx="xl">
+    <Container>
+      <Box alignSelf="flex-end" pt="m" mx="xl">
         <TouchableOpacity onPress={onSkip}>
           <Text variant="base" color={isLast ? 'transparent' : 'neutral2'}>
             Skip
@@ -105,7 +102,7 @@ const Onboarding = () => {
       <Box
         position="absolute"
         alignSelf="center"
-        bottom={DEVICE_HEIGHT * 0.2}
+        bottom={DEVICE_HEIGHT * 0.22}
         flexDirection="row"
         backgroundColor="transparent"
       >
@@ -113,7 +110,7 @@ const Onboarding = () => {
           <Dot key={index} {...{ index, activeIndex }} />
         ))}
       </Box>
-    </Box>
+    </Container>
   );
 };
 
