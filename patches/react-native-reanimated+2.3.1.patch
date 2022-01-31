@@ -1,0 +1,64 @@
+diff --git a/node_modules/react-native-reanimated/react-native-reanimated.d.ts b/node_modules/react-native-reanimated/react-native-reanimated.d.ts
+index 18f81cd..4994a9e 100644
+--- a/node_modules/react-native-reanimated/react-native-reanimated.d.ts
++++ b/node_modules/react-native-reanimated/react-native-reanimated.d.ts
+@@ -254,7 +254,58 @@ declare module 'react-native-reanimated' {
+       getNode(): ReactNativeImage;
+     }
+     export class ScrollView extends Component<AnimateProps<ScrollViewProps>> {
+-      getNode(): ReactNativeScrollView;
++      /**
++       * Scrolls to a given x, y offset, either immediately or with a smooth animation.
++       * Syntax:
++       *
++       * scrollTo(options: {x: number = 0; y: number = 0; animated: boolean = true})
++       *
++       * Note: The weird argument signature is due to the fact that, for historical reasons,
++       * the function also accepts separate arguments as an alternative to the options object.
++       * This is deprecated due to ambiguity (y before x), and SHOULD NOT BE USED.
++       */
++      scrollTo(y?: number | { x?: number | undefined; y?: number | undefined; animated?: boolean | undefined }, x?: number, animated?: boolean): void;
++
++      /**
++       * A helper function that scrolls to the end of the scrollview;
++       * If this is a vertical ScrollView, it scrolls to the bottom.
++       * If this is a horizontal ScrollView scrolls to the right.
++       *
++       * The options object has an animated prop, that enables the scrolling animation or not.
++       * The animated prop defaults to true
++       */
++      scrollToEnd(options?: { animated: boolean }): void;
++
++      /**
++       * Displays the scroll indicators momentarily.
++       */
++      flashScrollIndicators(): void;
++
++      /**
++       * Returns a reference to the underlying scroll responder, which supports
++       * operations like `scrollTo`. All ScrollView-like components should
++       * implement this method so that they can be composed while providing access
++       * to the underlying scroll responder's methods.
++       */
++      getScrollResponder(): ScrollResponderMixin;
++
++      getScrollableNode(): any;
++
++      // Undocumented
++      getInnerViewNode(): any;
++
++      /**
++       * @deprecated Use scrollTo instead
++       */
++      scrollWithoutAnimationTo?: ((y: number, x: number) => void) | undefined;
++
++      /**
++       * This function sends props straight to native. They will not participate in
++       * future diff process - this means that if you do not include them in the
++       * next render, they will remain active (see [Direct
++       * Manipulation](https://reactnative.dev/docs/direct-manipulation)).
++       */
++      setNativeProps(nativeProps: object): void;
+     }
+     export class Code extends Component<CodeProps> {}
+     export class FlatList extends Component<AnimateProps<FlatList>> {

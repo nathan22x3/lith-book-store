@@ -1,4 +1,6 @@
-import { LoadAssets, Text, Box, theme } from '@components/index';
+import { LoadAssets, theme } from '@components/index';
+import { createStackNavigator } from '@react-navigation/stack';
+import { AuthNavigator } from '@routes/index';
 import { ThemeProvider } from '@shopify/restyle';
 
 const fonts = {
@@ -8,13 +10,19 @@ const fonts = {
   'Literata-Medium': require('./assets/fonts/Literata-Medium.ttf'),
 };
 
+type AppStackParamList = {
+  Auth: undefined;
+};
+
+const Stack = createStackNavigator<AppStackParamList>();
+
 const App = () => {
   return (
     <ThemeProvider {...{ theme }}>
       <LoadAssets {...{ fonts }}>
-        <Box flex={1} justifyContent="center" alignItems="center">
-          <Text variant="content">Hello World</Text>
-        </Box>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Auth" component={AuthNavigator} />
+        </Stack.Navigator>
       </LoadAssets>
     </ThemeProvider>
   );
