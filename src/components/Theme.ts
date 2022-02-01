@@ -20,6 +20,7 @@ const theme = createTheme({
     transparent: 'transparent',
   },
   spacing: {
+    none: 0,
     xs: 4,
     s: 8,
     m: 16,
@@ -30,8 +31,9 @@ const theme = createTheme({
     '4xl': 88,
   },
   borderRadii: {
-    xs: 2,
-    s: 4,
+    '2xs': 2,
+    xs: 4,
+    s: 8,
     m: 16,
     l: 24,
     xl: 32,

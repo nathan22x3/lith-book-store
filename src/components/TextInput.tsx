@@ -1,5 +1,5 @@
 import { Feather as Icon } from '@expo/vector-icons';
-import { forwardRef } from 'react';
+import { ComponentProps, forwardRef } from 'react';
 import {
   StyleSheet,
   TextInput as RNTextInput,
@@ -11,10 +11,11 @@ interface TextInputProps extends RNTextInputProps {
   icon: keyof typeof Icon.glyphMap;
   error?: string;
   touched?: boolean;
+  containerStyle?: ComponentProps<typeof Box>;
 }
 
 const TextInput = forwardRef<RNTextInput, TextInputProps>(
-  ({ icon, error = '', touched = false, ...rest }, ref) => {
+  ({ icon, error = '', touched = false, containerStyle, ...rest }, ref) => {
     const reColor: keyof typeof theme.colors = !touched
       ? 'neutral4'
       : !error
@@ -32,6 +33,7 @@ const TextInput = forwardRef<RNTextInput, TextInputProps>(
         borderRadius="l"
         mb="m"
         backgroundColor="neutral6"
+        {...containerStyle}
       >
         <Icon name={icon} size={20} {...{ color }} />
         <RNTextInput

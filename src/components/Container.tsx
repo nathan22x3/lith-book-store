@@ -1,19 +1,20 @@
-import { DEVICE_HEIGHT, IS_ANDROID } from '@utils/const';
-import Constants from 'expo-constants';
+import { DEVICE_HEIGHT } from '@utils/const';
 import { ComponentProps, ReactNode } from 'react';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { Box } from './Theme';
-
-const EXTRA_SPACING = IS_ANDROID ? Constants.statusBarHeight : 0;
 
 interface ContainerProps extends ComponentProps<typeof Box> {
   children: ReactNode;
 }
 
 const Container = ({ children, ...rest }: ContainerProps) => {
+  const insets = useSafeAreaInsets();
+
   return (
     <Box
-      height={DEVICE_HEIGHT + EXTRA_SPACING}
-      style={{ paddingTop: EXTRA_SPACING }}
+      style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}
+      height={DEVICE_HEIGHT + insets.top}
+      px="l"
       backgroundColor="white"
       {...rest}
     >

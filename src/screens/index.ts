@@ -1,2 +1,2 @@
-export { default as Onboarding } from './Onboarding';
 export * from './Auth';
+export { default as Home } from './Home';

@@ -1,6 +1,5 @@
 import { LoadAssets, theme } from '@components/index';
-import { createStackNavigator } from '@react-navigation/stack';
-import { AuthNavigator } from '@routes/index';
+import { AppNavigator } from '@routes/index';
 import { ThemeProvider } from '@shopify/restyle';
 
 const fonts = {
@@ -10,19 +9,11 @@ const fonts = {
   'Literata-Medium': require('./assets/fonts/Literata-Medium.ttf'),
 };
 
-type AppStackParamList = {
-  Auth: undefined;
-};
-
-const Stack = createStackNavigator<AppStackParamList>();
-
 const App = () => {
   return (
     <ThemeProvider {...{ theme }}>
       <LoadAssets {...{ fonts }}>
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Auth" component={AuthNavigator} />
-        </Stack.Navigator>
+        <AppNavigator />
       </LoadAssets>
     </ThemeProvider>
   );

@@ -1,6 +1,5 @@
 import { Box, Button, Checkbox, Container, Text, TextInput } from '@components/index';
-import { StackScreenProps } from '@react-navigation/stack';
-import { AuthStackParamList } from '@routes/index';
+import { AuthNavigationProps } from '@routes/index';
 import { Footer, Header, SocialLogin } from '@screens/Auth/components';
 import { useFormik } from 'formik';
 import { useRef } from 'react';
@@ -13,9 +12,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required('Password is required!'),
 });
 
-type LoginProps = StackScreenProps<AuthStackParamList, 'Login'>;
-
-const Login = ({ navigation }: LoginProps) => {
+const Login = ({ navigation }: AuthNavigationProps<'Login'>) => {
   const password = useRef<RNTextInput>(null);
 
   const { values, touched, errors, setFieldValue, handleChange, handleBlur, handleSubmit } =
@@ -23,14 +20,14 @@ const Login = ({ navigation }: LoginProps) => {
       initialValues: { email: '', password: '', remember: true },
       validationSchema,
       onSubmit: () => {
-        // TODO: implement submit handle
+        navigation.navigate('Store');
       },
     });
 
   return (
     <Container>
       <Header title="Welcome Back!" subtitle="Login to your existence account of Lith" />
-      <Box px="l" mt="2xl">
+      <Box mt="2xl">
         <TextInput
           icon="user"
           value={values.email}

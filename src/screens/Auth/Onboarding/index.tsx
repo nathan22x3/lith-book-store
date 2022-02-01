@@ -1,7 +1,6 @@
 import { Box, Container, Text, theme } from '@components/index';
-import { StackScreenProps } from '@react-navigation/stack';
-import { AuthParamList } from '@routes/index';
-import { Dot, Slide } from '@screens/Onboarding/components';
+import { AuthNavigationProps } from '@routes/index';
+import { Dot, Slide } from '@screens/Auth/Onboarding/components';
 import { DEVICE_HEIGHT, DEVICE_WIDTH, IS_ANDROID } from '@utils/const';
 import { useState } from 'react';
 import { Image, StyleSheet } from 'react-native';
@@ -16,9 +15,7 @@ import Animated, {
 } from 'react-native-reanimated';
 import { ONBOARDING_DATA as data } from './mock';
 
-type OnboardingProps = StackScreenProps<AuthParamList, 'Onboarding'>;
-
-const Onboarding = ({ navigation }: OnboardingProps) => {
+const Onboarding = ({ navigation }: AuthNavigationProps<'Onboarding'>) => {
   const x = useSharedValue(0);
   const sliderRef = useAnimatedRef<Animated.ScrollView>();
   const activeIndex = useDerivedValue(() => x.value / DEVICE_WIDTH);
@@ -59,7 +56,7 @@ const Onboarding = ({ navigation }: OnboardingProps) => {
   };
 
   return (
-    <Container>
+    <Container px="none">
       <Box alignSelf="flex-end" pt="m" mx="xl">
         <TouchableOpacity onPress={onSkip}>
           <Text variant="base" color={isLast ? 'transparent' : 'neutral2'}>
