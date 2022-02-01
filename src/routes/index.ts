@@ -1,1 +1,1 @@
-export { default as AuthNavigator, AuthParamList } from './AuthNavigator';
+export { default as AuthNavigator, AuthStackParamList } from './AuthNavigator';

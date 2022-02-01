@@ -1,11 +1,11 @@
-import { Box, theme } from '@components/index';
 import { Feather as Icon } from '@expo/vector-icons';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import {
   StyleSheet,
   TextInput as RNTextInput,
   TextInputProps as RNTextInputProps,
 } from 'react-native';
+import theme, { Box } from './Theme';
 
 interface TextInputProps extends RNTextInputProps {
   icon: keyof typeof Icon.glyphMap;
@@ -63,9 +63,9 @@ export default TextInput;
 
 const styles = StyleSheet.create({
   input: {
+    ...theme.textVariants.body4,
     flex: 1,
     marginHorizontal: 12,
-    ...theme.textVariants.body4,
     color: theme.colors.neutral1,
   },
   inputError: {

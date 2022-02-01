@@ -1,6 +1,5 @@
 import { Box, Button, Text } from '@components/index';
 import { DEVICE_WIDTH } from '@utils/const';
-import React from 'react';
 
 interface SlideProps {
   title: string;

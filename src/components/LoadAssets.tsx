@@ -5,7 +5,7 @@ import { Asset } from 'expo-asset';
 import Constants from 'expo-constants';
 import * as Font from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
-import React, { useCallback, useEffect, useState } from 'react';
+import { ReactNode, useCallback, useEffect, useState } from 'react';
 import { ImageRequireSource } from 'react-native';
 
 const NAVIGATION_STATE_KEY = `NAVIGATION_STATE_KEY-${Constants.manifest?.sdkVersion}`;
@@ -31,7 +31,7 @@ const useLoadAssets = (assets: number[], fonts: FontSource): boolean => {
 interface LoadAssetsProps {
   fonts?: FontSource;
   assets?: ImageRequireSource[];
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const LoadAssets = ({ assets, fonts, children }: LoadAssetsProps) => {

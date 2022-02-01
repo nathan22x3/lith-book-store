@@ -1,5 +1,4 @@
 import { theme } from '@components/index';
-import React from 'react';
 import { StyleSheet } from 'react-native';
 import Animated, { interpolateColor, useAnimatedStyle } from 'react-native-reanimated';
 

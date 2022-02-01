@@ -1,5 +1,7 @@
-import { Box, Button, Container } from '@components/index';
-import { Footer, Header, TextInput } from '@screens/Auth/components';
+import { Box, Button, Container, TextInput } from '@components/index';
+import { StackScreenProps } from '@react-navigation/stack';
+import { AuthStackParamList } from '@routes/AuthNavigator';
+import { Footer, Header } from '@screens/Auth/components';
 import { passwordRegex } from '@utils/regex';
 import { useFormik } from 'formik';
 import { useRef } from 'react';
@@ -18,7 +20,9 @@ const validationSchema = Yup.object().shape({
     .required('Password confirmation is required!'),
 });
 
-const SignUp = () => {
+type SignUpProps = StackScreenProps<AuthStackParamList, 'SignUp'>;
+
+const SignUp = ({ navigation }: SignUpProps) => {
   const password = useRef<RNTextInput>(null);
   const passwordConfirmation = useRef<RNTextInput>(null);
 
@@ -32,7 +36,7 @@ const SignUp = () => {
 
   return (
     <Container>
-      <Header title="Create New Account" subtitle="Register new Kindle account" />
+      <Header title="Create New Account" subtitle="Register new Lith account" />
       <Box px="l" mt="2xl">
         <TextInput
           icon="user"
@@ -75,7 +79,11 @@ const SignUp = () => {
           <Button label="Sign up" variant="primary" onPress={() => handleSubmit()} />
         </Box>
       </Box>
-      <Footer content="Already have account?" action="Sign in" onPress={() => {}} />
+      <Footer
+        content="Already have account?"
+        action="Sign in"
+        onPress={() => navigation.replace('Login')}
+      />
     </Container>
   );
 };

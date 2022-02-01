@@ -1,5 +1,4 @@
 import { Box, Text } from '@components/index';
-import React from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 interface FooterProps {

@@ -1,5 +1,4 @@
 import { Box, Text } from '@components/index';
-import React from 'react';
 import { Image } from 'react-native';
 
 const LOGO_WIDTH = 112;
