@@ -17,6 +17,8 @@ const theme = createTheme({
     neutral5: '#EDECEC',
     neutral6: '#F6F6F7',
     white: '#FFFFFF',
+    gold: '#FFC107',
+    black: '#000000',
     transparent: 'transparent',
   },
   spacing: {
@@ -65,7 +67,7 @@ const theme = createTheme({
       fontFamily: 'Roboto-Bold',
       fontSize: 18,
       lineHeight: 28,
-      color: 'neutral2',
+      color: 'neutral1',
     },
     headline3: {
       fontFamily: 'Roboto-Regular',

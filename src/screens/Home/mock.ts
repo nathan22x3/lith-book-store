@@ -1,4 +1,4 @@
-interface Book {
+export interface Book {
   id: string;
   title: string;
   cover: string;
@@ -19,6 +19,25 @@ interface Book {
 
 export const LIBRARY_BOOKS: Book[] = [
   {
+    id: 'f67be7d7-d44d-4a5e-8351-298521b95aaa',
+    title: 'DevUP',
+    cover: 'https://cdn0.fahasa.com/media/catalog/product/d/e/devup_1.jpg',
+    author: 'Nguyễn Hiển',
+    genre: 'Life Skills',
+    rating: { star: 4.7, count: 181 },
+    price: 129000,
+    discountPercent: 0,
+    overview:
+      'Thế giới đang đối mặt với những thay đổi chưa từng có. Những gì chúng ta chắc chắn vào 5 năm, hoặc 2 năm trước, giờ đây đang bị thử thách. Từ “cơn bão” của Trí tuệ nhân tạo, những chức năng, ứng dụng mới của các ngôn ngữ lập trình cho đến sự xuất hiện của đa dạng nền tảng công nghệ.',
+    description: {
+      length: 204,
+      audible: 'Not Available',
+      wordWise: 'Disable',
+      screenReader: 'Not Supported',
+      enhancedTypesetting: 'Disable',
+    },
+  },
+  {
     id: 'ec663c96-b022-4331-9cbb-a5075ed78066',
     title: 'Nghệ Thuật Ẩn Mình',
     cover:
@@ -32,25 +51,6 @@ export const LIBRARY_BOOKS: Book[] = [
       'Trong cuốn sách này, Kevin Mitnick, hacker nổi tiếng nhất thế giới, sẽ hướng dẫn các biện pháp dễ thực hiện (và ít tốn kém) giúp bạn – trên cương vị một cá nhân bình thường và một người tiêu dùng – có thể giấu các thông tin nhận dạng cá nhân của mình trong kỷ nguyên của Dữ liệu Lớn, vốn không thiếu những scandal quy mô quốc tế về những vụ vi phạm dữ liệu người dùng thường xuyên xuất hiện trên các mặt báo. Mitnick bàn đến nhiều phương tiện mà chúng ta sử dụng hằng ngày – từ điện thoại, email, cho đến tin nhắn,… – chỉ ra những lỗ hổng mà người khác có thể lợi dụng để giành quyền kiểm soát các dữ liệu của chúng ta, đồng thời đưa ra những giải pháp phòng chống cụ thể và hữu hiệu mà bất kỳ ai cũng có thể thực hiện để tự bảo vệ mình.',
     description: {
       length: 344,
-      audible: 'Not Available',
-      wordWise: 'Disable',
-      screenReader: 'Not Supported',
-      enhancedTypesetting: 'Disable',
-    },
-  },
-  {
-    id: 'f67be7d7-d44d-4a5e-8351-298521b95aaa',
-    title: 'DevUP',
-    cover: 'https://cdn0.fahasa.com/media/catalog/product/d/e/devup_1.jpg',
-    author: 'Nguyễn Hiển',
-    genre: 'Life Skills',
-    rating: { star: 4.7, count: 181 },
-    price: 129000,
-    discountPercent: 0,
-    overview:
-      'Thế giới đang đối mặt với những thay đổi chưa từng có. Những gì chúng ta chắc chắn vào 5 năm, hoặc 2 năm trước, giờ đây đang bị thử thách. Từ “cơn bão” của Trí tuệ nhân tạo, những chức năng, ứng dụng mới của các ngôn ngữ lập trình cho đến sự xuất hiện của đa dạng nền tảng công nghệ.',
-    description: {
-      length: 204,
       audible: 'Not Available',
       wordWise: 'Disable',
       screenReader: 'Not Supported',

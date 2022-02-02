@@ -1,6 +1,7 @@
 import { theme } from '@components/index';
 import { BottomTabBarButtonProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Home } from '@screens/index';
+import { TAB_BAR_HEIGHT } from '@utils/const';
 import { ComponentType, ReactNode } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import Animated, {
@@ -112,7 +113,7 @@ const styles = StyleSheet.create({
   tabBar: {
     position: 'absolute',
     alignItems: 'center',
-    height: 64,
+    height: TAB_BAR_HEIGHT,
     borderTopLeftRadius: 28,
     borderTopRightRadius: 28,
     shadowColor: theme.colors.neutral1,

@@ -1,9 +1,11 @@
 import { Box, Text } from '@components/index';
+import { DEVICE_WIDTH } from '@utils/const';
 import { Image, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const COVER_WIDTH = 178;
-const COVER_HEIGHT = 245;
+const COVER_RATIO = 245 / 178;
+export const COVER_WIDTH = DEVICE_WIDTH * 0.471;
+const COVER_HEIGHT = COVER_WIDTH * COVER_RATIO;
 
 interface ReadingProgressProps {
   title: string;
