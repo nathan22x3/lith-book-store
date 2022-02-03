@@ -7,9 +7,9 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Book } from '../mock';
 import RatingStars from './RatingStars';
 
-const COVER_RATIO = 116 / 84;
-const COVER_WIDTH = DEVICE_WIDTH * 0.224;
-const COVER_HEIGHT = COVER_WIDTH * COVER_RATIO;
+const BOOK_CARD_RATIO = 116 / 84;
+const BOOK_CARD_WIDTH = DEVICE_WIDTH * 0.224;
+export const BOOK_CARD_HEIGHT = BOOK_CARD_WIDTH * BOOK_CARD_RATIO;
 
 interface ReadingProgressProps
   extends Pick<Book, 'title' | 'cover' | 'genre' | 'rating' | 'overview'> {
@@ -26,7 +26,7 @@ const ReadingProgress = ({
 }: ReadingProgressProps) => {
   return (
     <TouchableOpacity activeOpacity={0.75} {...{ onPress }}>
-      <Box flexDirection="row" px="l">
+      <Box flexDirection="row">
         <Image source={{ uri: cover }} style={styles.cover} />
         <Box flex={1} justifyContent="space-between" ml="m">
           <Box>
@@ -54,8 +54,8 @@ export default ReadingProgress;
 
 const styles = StyleSheet.create({
   cover: {
-    width: COVER_WIDTH,
-    height: COVER_HEIGHT,
+    width: BOOK_CARD_WIDTH,
+    height: BOOK_CARD_HEIGHT,
     borderRadius: 12,
   },
 });

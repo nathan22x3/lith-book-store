@@ -1,6 +1,7 @@
 import { theme } from '@components/index';
+import { NavigatorScreenParams } from '@react-navigation/native';
 import { BottomTabBarButtonProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Home } from '@screens/index';
+import { Main, MainParams } from '@screens/index';
 import { TAB_BAR_HEIGHT } from '@utils/const';
 import { ComponentType, ReactNode } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
@@ -23,7 +24,7 @@ import {
 } from './Icon';
 
 export type StoreRoutes = {
-  Home: undefined;
+  Main: NavigatorScreenParams<MainParams>;
   Library: undefined;
   BookStore: undefined;
   Settings: undefined;
@@ -39,17 +40,17 @@ type TabItem = {
 };
 
 const tabs: TabItem[] = [
-  { route: 'Home', component: Home, activeIcon: <IconHomeFilled />, inactiveIcon: <IconHome /> },
-  { route: 'Library', component: Home, activeIcon: <IconBookFilled />, inactiveIcon: <IconBook /> },
+  { route: 'Main', component: Main, activeIcon: <IconHomeFilled />, inactiveIcon: <IconHome /> },
+  { route: 'Library', component: Main, activeIcon: <IconBookFilled />, inactiveIcon: <IconBook /> },
   {
     route: 'BookStore',
-    component: Home,
+    component: Main,
     activeIcon: <IconBooksFilled />,
     inactiveIcon: <IconBooks />,
   },
   {
     route: 'Settings',
-    component: Home,
+    component: Main,
     activeIcon: <IconMoreFilled />,
     inactiveIcon: <IconMore />,
   },

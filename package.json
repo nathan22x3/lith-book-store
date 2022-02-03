@@ -27,6 +27,7 @@
     "expo-asset": "~8.4.6",
     "expo-constants": "~13.0.1",
     "expo-font": "~10.0.4",
+    "expo-linear-gradient": "~11.0.1",
     "expo-status-bar": "~1.2.0",
     "formik": "^2.2.9",
     "lodash": "^4.17.21",

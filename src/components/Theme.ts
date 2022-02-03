@@ -19,7 +19,7 @@ const theme = createTheme({
     white: '#FFFFFF',
     gold: '#FFC107',
     black: '#000000',
-    transparent: 'transparent',
+    transparent: 'rgba(255, 255, 255, 0)',
   },
   spacing: {
     none: 0,
